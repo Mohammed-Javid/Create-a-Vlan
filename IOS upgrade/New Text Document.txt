@@ -1,0 +1,10 @@
+https://pynet.twb-tech.com/blog/python/asa-upgrade.html
+
+
+
+
+Attaching a script to upgrade IOS in cisco IOS and ASA devices. This uses SCP transfer and needs SSH & SCP server to be enabled on the device. Kindly request you all to customize the same, so that this can be used effectively for IOS upgrades.
+
+
+Path:
+
