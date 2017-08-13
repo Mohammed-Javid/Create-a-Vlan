@@ -1,0 +1,52 @@
+#!/usr/bin/env python
+
+from netmiko import ConnectHandler
+
+iosv_l2_s1 = {
+    'device_type': 'cisco_ios',
+    'ip': '172.31.197.181',
+    'username': 'dimension',
+    'password': 'password',
+}
+
+iosv_l2_s2 = {
+    'device_type': 'cisco_ios',
+    'ip': '172.31.197.177',
+    'username': 'dimension',
+    'password': 'password',
+}
+
+iosv_l2_s3 = {
+    'device_type': 'cisco_ios',
+    'ip': '172.31.197.189',
+    'username': 'dimension',
+    'password': 'password',
+}
+
+with open('iosv_l2_access.txt') as f:
+    lines = f.read().splitlines()
+print lines
+
+all_devices = [iosv_l2_s2, iosv_l2_s3]
+
+for devices in all_devices:
+    net_connect = ConnectHandler(**devices)
+    output = net_connect.send_config_set(lines)
+    print output
+
+with open('iosv_l2_core.txt') as f:
+    lines = f.read().splitlines()
+print lines
+
+all_devices = [iosv_l2_s1]
+
+for devices in all_devices:
+    net_connect = ConnectHandler(**devices)
+    output = net_connect.send_config_set(lines)
+    print output
+
+
+
+
+
+
